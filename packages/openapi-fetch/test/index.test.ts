@@ -911,7 +911,7 @@ describe("client", () => {
             return undefined;
           },
         })
-        await client.GET("/blogposts/{id}", { params: { path: { id: "123" } } });
+        await client.GET("/blogposts/{post_id}", { params: { path: { id: "123" } } });
         expect(receivedUrl).toBe("https://api.foo.bar/v1/blogposts/123");
       });
       it("can get the final request options in merged options", async () => {
@@ -926,7 +926,7 @@ describe("client", () => {
             return undefined;
           },
         })
-        await client.POST("/blogposts/{id}", { params: { path: { id: "123" } }, body: { title: "New Post"}});
+        await client.POST("/blogposts/{post_id}", { params: { path: { id: "123" } }, body: { title: "New Post"}});
         expect(receivedOptions.method).toBe("POST");
         expect(receivedOptions.body).toBe(JSON.stringify({ title: "New Post"}));
       });
